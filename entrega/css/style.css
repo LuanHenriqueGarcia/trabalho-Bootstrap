@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  --fundo: #060607;
+  --caixa: #0d0d10;
+  --texto: #e6e6e6;
+  --cinza: #7a7a80;
+  --borda: #24242a;
+  --verde: #00ff9c;
+}
+
+body {
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* menu */
+.navbar {
+  background: var(--fundo);
+  border-bottom: 1px solid var(--borda);
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+.navbar-brand::before {
+  content: "> ";
+  color: var(--verde);
+}
+
+/* busca */
+.form-control {
+  background: var(--caixa);
+  border: 1px solid var(--borda);
+  border-radius: 0;
+  color: var(--texto);
+  font-family: inherit;
+}
+
+.form-control::placeholder {
+  color: var(--cinza);
+}
+
+.form-control:focus {
+  background: var(--caixa);
+  color: var(--texto);
+  border-color: var(--verde);
+  box-shadow: none;
+}
+
+.btn-primary {
+  background: var(--verde);
+  border: 1px solid var(--verde);
+  border-radius: 0;
+  color: #000;
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  border-color: var(--verde);
+  color: var(--verde);
+}
+
+.alert {
+  background: var(--caixa);
+  border: 1px solid var(--borda);
+  border-left: 3px solid var(--verde);
+  border-radius: 0;
+  color: var(--texto);
+}
+
+.alert-warning {
+  border-left-color: #e6c85c;
+  color: #e6c85c;
+}
+
+.card {
+  background: var(--caixa);
+  border: 1px solid var(--borda);
+  border-radius: 0;
+  color: var(--texto);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card:hover {
+  border-color: var(--verde);
+  transform: translateY(-4px);
+}
+
+.card-img-top {
+  height: 170px;
+  object-fit: cover;
+  border-radius: 0;
+  filter: grayscale(100%);
+  transition: 0.3s;
+}
+
+.card:hover .card-img-top {
+  filter: grayscale(0%);
+}
+
+.card-title {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.card:hover .card-title {
+  color: var(--verde);
+}
+
+.card .text-muted {
+  color: var(--cinza) !important;
+  font-size: 12px !important;
+}
+
+.badge {
+  border-radius: 0;
+  font-weight: 400;
+}
+
+.badge.bg-primary {
+  background: transparent !important;
+  border: 1px solid var(--verde);
+  color: var(--verde);
+}
+
+.badge.bg-secondary {
+  background: var(--borda) !important;
+  color: var(--texto);
+}
+
+.modal-content {
+  background: var(--caixa);
+  border: 1px solid var(--verde);
+  border-radius: 0;
+  color: var(--texto);
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--borda);
+}
+
+.modal-title {
+  color: var(--verde);
+  font-size: 17px;
+}
+
+.modal-body {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@media (max-width: 576px) {
+  .card-img-top {
+    height: 140px;
+  }
+}
