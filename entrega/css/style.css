@@ -7,6 +7,21 @@
   --cinza: #7a7a80;
   --borda: #24242a;
   --verde: #00ff9c;
+  --sobre-verde: #000;
+  --amarelo: #e6c85c;
+  --raio: 8px;
+}
+
+/* tema claro */
+[data-theme="light"] {
+  --fundo: #f4f4f6;
+  --caixa: #ffffff;
+  --texto: #1a1a1f;
+  --cinza: #5c5c66;
+  --borda: #d4d4da;
+  --verde: #00875a;
+  --sobre-verde: #fff;
+  --amarelo: #8a6d00;
 }
 
 body {
@@ -22,7 +37,34 @@ body {
 }
 
 .navbar-brand {
+  color: var(--texto) !important;
   font-weight: 700;
+}
+
+.btn-tema {
+  background: transparent;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  color: var(--texto);
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+}
+
+.btn-tema:hover {
+  border-color: var(--verde);
+  color: var(--verde);
+}
+
+/* no escuro mostra o sol (ir pro claro), no claro mostra a lua */
+.icone-lua,
+[data-theme="light"] .icone-sol {
+  display: none;
+}
+
+[data-theme="light"] .icone-lua {
+  display: block;
 }
 
 .navbar-brand::before {
@@ -34,7 +76,7 @@ body {
 .form-control {
   background: var(--caixa);
   border: 1px solid var(--borda);
-  border-radius: 0;
+  border-radius: var(--raio);
   color: var(--texto);
   font-family: inherit;
 }
@@ -53,8 +95,8 @@ body {
 .btn-primary {
   background: var(--verde);
   border: 1px solid var(--verde);
-  border-radius: 0;
-  color: #000;
+  border-radius: var(--raio);
+  color: var(--sobre-verde);
   font-weight: 700;
 }
 
@@ -68,19 +110,19 @@ body {
   background: var(--caixa);
   border: 1px solid var(--borda);
   border-left: 3px solid var(--verde);
-  border-radius: 0;
+  border-radius: var(--raio);
   color: var(--texto);
 }
 
 .alert-warning {
-  border-left-color: #e6c85c;
-  color: #e6c85c;
+  border-left-color: var(--amarelo);
+  color: var(--amarelo);
 }
 
 .card {
   background: var(--caixa);
   border: 1px solid var(--borda);
-  border-radius: 0;
+  border-radius: var(--raio);
   color: var(--texto);
   cursor: pointer;
   transition: 0.2s;
@@ -94,7 +136,7 @@ body {
 .card-img-top {
   height: 170px;
   object-fit: cover;
-  border-radius: 0;
+  border-radius: var(--raio) var(--raio) 0 0;
   filter: grayscale(100%);
   transition: 0.3s;
 }
@@ -118,7 +160,7 @@ body {
 }
 
 .badge {
-  border-radius: 0;
+  border-radius: 50px;
   font-weight: 400;
 }
 
@@ -136,8 +178,12 @@ body {
 .modal-content {
   background: var(--caixa);
   border: 1px solid var(--verde);
-  border-radius: 0;
+  border-radius: var(--raio);
   color: var(--texto);
+}
+
+[data-theme="light"] .btn-close-white {
+  filter: none;
 }
 
 .modal-header {

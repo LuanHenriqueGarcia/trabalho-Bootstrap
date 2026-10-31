@@ -1,4 +1,14 @@
-const api = GepisegAPI.criar();
+ const api = GepisegAPI.criar();
+
+function aplicarTema(tema) {
+  document.documentElement.setAttribute('data-theme', tema);
+  try { localStorage.setItem('tema', tema); } catch (e) {}
+}
+
+function trocarTema() {
+  const atual = document.documentElement.getAttribute('data-theme');
+  aplicarTema(atual === 'light' ? 'dark' : 'light');
+}
 
 async function mostrarArtigos() {
   const aviso = document.getElementById('aviso');
@@ -7,6 +17,8 @@ async function mostrarArtigos() {
 
   try {
     const resposta = await api.artigos.listar({ q: busca, porPagina: 30 });
+
+
     aviso.innerHTML = `<div class="alert alert-info">${resposta.info.count} artigo(s) encontrado(s)</div>`;
 
     lista.innerHTML = resposta.results.map(artigo => `
@@ -38,5 +50,9 @@ async function abrirArtigo(id) {
 
   bootstrap.Modal.getOrCreateInstance(document.getElementById('modal')).show();
 }
+
+let temaSalvo = 'dark';
+try { temaSalvo = localStorage.getItem('tema') || 'dark'; } catch (e) {}
+aplicarTema(temaSalvo);
 
 mostrarArtigos();
